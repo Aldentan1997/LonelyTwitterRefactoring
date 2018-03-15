@@ -1,6 +1,5 @@
 package ca.ualberta.cs.lonelytwitter;
 
-import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
@@ -10,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import ca.ualberta.cs.lonelytweet.NormalLonelyTweet;
 
 public class LonelyTwitterActivity extends Activity {
 
@@ -45,7 +46,7 @@ public class LonelyTwitterActivity extends Activity {
 
 		NormalLonelyTweet tweet;
 
-		tweet = new NormalLonelyTweet(text, new Date());
+		tweet = new NormalLonelyTweet(text);
 
 		//TODO: use different sub-classes (Normal or Important) based on usage of "*" in the text.
 		
@@ -66,4 +67,11 @@ public class LonelyTwitterActivity extends Activity {
 		tweetsProvider.saveTweets(tweets);
 	}
 
+	public List<NormalLonelyTweet> getTweets() {
+		return tweets;
+	}
+
+	public void setTweets(List<NormalLonelyTweet> tweets) {
+		this.tweets = tweets;
+	}
 }
